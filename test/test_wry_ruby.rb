@@ -7,7 +7,7 @@ class TestWryRuby < Minitest::Test
     refute_nil ::WryRuby::VERSION
   end
 
-  def test_it_does_something_useful
-    assert false
+  def test_hello_wry_hm
+    hello_wry
   end
 end
