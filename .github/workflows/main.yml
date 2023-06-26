@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-
+      - dev
   pull_request:
 
 jobs:
@@ -17,13 +17,20 @@ jobs:
           - '3.2.2'
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Ruby & Rust
-      uses: oxidize-rb/actions/setup-ruby-and-rust@v1
-      with:
-        ruby-version: ${{ matrix.ruby }}
-        bundler-cache: true
-        cargo-cache: true
-        rubygems: '3.4.14'
-    - name: Run the default task
-      run: bundle exec rake
+      - uses: actions/checkout@v3
+      - name: Set up Ruby & Rust
+        uses: oxidize-rb/actions/setup-ruby-and-rust@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+          cargo-cache: true
+          rubygems: '3.4.14'
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y libwebkit2gtk-4.1-dev
+          sudo apt install -y libayatana-appindicator3-dev
+
+      - name: Run the default task
+        run: bundle exec rake

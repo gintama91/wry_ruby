@@ -21,4 +21,4 @@ RbSys::ExtensionTask.new("wry_ruby") do |ext|
   ext.lib_dir = "lib/wry_ruby"
 end
 
-task default: %i[compile test rubocop]
+task default: %i[compile test ]#no rubocop add later

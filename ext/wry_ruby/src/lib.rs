@@ -9,17 +9,20 @@ use wry::{
 };
 
 fn hello_wry() {
-    let event_loop = EventLoop::new();
-    let window = WindowBuilder::new()
-        .with_title("Hello World")
-        .build(&event_loop)
-        .unwrap();
-    let _webview = WebViewBuilder::new(window)
-        .unwrap()
-        .with_url("https://tauri.studio")
-        .unwrap()
-        .build()
-        .unwrap();
+
+        let event_loop = EventLoop::new();
+
+        let window = WindowBuilder::new()
+            .with_title("Hello World")
+            .build(&event_loop)
+            .unwrap();
+        let _webview = WebViewBuilder::new(window)
+            .unwrap()
+            .with_url("https://tauri.studio")
+            .unwrap()
+            .build()
+            .unwrap();
+    
 
     event_loop.run(move |event, _, control_flow| {
         *control_flow = ControlFlow::Wait;
@@ -32,8 +35,10 @@ fn hello_wry() {
             } => *control_flow = ControlFlow::Exit,
             _ => (),
         }
-    });
+});
 }
+
+
 
 #[magnus::init]
 fn init() -> Result<(), Error> {
