@@ -10,5 +10,7 @@ publish = false
 crate-type = ["cdylib"]
 
 [dependencies]
-magnus = { version = "0.5" }
+magnus = { version = "0.5.4" }
 wry = "0.29.0"
+gdk = "0.16.2"
+gtk="0.16.2"
