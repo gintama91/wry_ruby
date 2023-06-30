@@ -6,6 +6,6 @@ class TestWryRuby < Minitest::Test
   # end
 
   def test_hello_wry
-  
+    new_window "Hello Wry",100,400,true # title, width, height, resizable
   end
 end

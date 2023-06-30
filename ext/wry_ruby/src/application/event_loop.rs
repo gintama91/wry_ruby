@@ -1,10 +1,10 @@
 use magnus::{
-    define_class, define_global_function, function, method, Error, Module, Object, Value,
+    function, Error, Object,
 };
-use std::cell::RefCell;
+
 use std::marker::PhantomData;
-use std::sync::atomic::{AtomicPtr, Ordering};
-use wry::application::dpi::LogicalSize;
+use std::sync::atomic::{AtomicPtr};
+
 use wry::application::event_loop::{
       EventLoop as EventLoopImpl, 
 };
@@ -19,7 +19,7 @@ pub struct SafeWrapper<T> {
     _marker: PhantomData<*mut T>,
 }
 
-unsafe impl<T> Send for SafeWrapper<T> {}
+unsafe impl<T> Send for SafeWrapper<T> {} 
 
 impl EventLoop {
     pub fn new() -> Self {

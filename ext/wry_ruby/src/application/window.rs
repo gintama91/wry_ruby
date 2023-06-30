@@ -1,21 +1,20 @@
-use magnus::{Error, define_global_function, function, define_class};
+use magnus::{Error, define_global_function, function};
 use wry::application::dpi::LogicalSize;
 use wry::application::window::WindowBuilder;
 
 use wry::{
     application::{
       event::{Event, StartCause, WindowEvent},
-      event_loop::{ControlFlow, EventLoop},
+      event_loop::{ControlFlow},
     },
-    webview::WebViewBuilder,
   };
 
-pub fn WindoWnew(title: String, width: u32, height: u32) {
+pub fn WindoWnew(title: String, width: u32, height: u32, resizable: bool) {
     let event_loop = wry::application::event_loop::EventLoop::new();
     let mut window_builder = WindowBuilder::new();
     window_builder = window_builder.with_title(title.clone());
     window_builder = window_builder.with_inner_size(LogicalSize::new(width, height)); 
-    window_builder = window_builder.with_resizable(false);
+    window_builder = window_builder.with_resizable(resizable);
 
     let window = window_builder.build(&event_loop).expect("Failed to create window");
 
@@ -45,8 +44,8 @@ pub fn WindoWnew(title: String, width: u32, height: u32) {
 
 
 pub fn init() -> Result<(), Error> {
-
-     define_global_function("new_window", function!(WindoWnew, 3));
+println!("inside init");
+     define_global_function("new_window", function!(WindoWnew, 4));
     // define_global_function("hello_wry", function!(new, 3));
     // application::init();
     Ok(())
