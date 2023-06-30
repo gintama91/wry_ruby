@@ -5,7 +5,7 @@ use std::cell::RefCell;
 use gdk;
 use gtk;
 
-use magnus::{Error, function, Object, Module, method};
+use magnus::{function, method, Error, Module, Object};
 
 use wry::application::clipboard::Clipboard as ClipboardImpl;
 
