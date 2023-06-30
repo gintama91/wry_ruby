@@ -1,21 +1,18 @@
-use magnus::{Error, define_global_function, function, define_class};
+use magnus::{Error, define_global_function, function};
 use wry::application::dpi::LogicalSize;
 use wry::application::window::WindowBuilder;
+use wry::application::{
+    event::{Event, StartCause, WindowEvent},
+    event_loop::{ControlFlow, EventLoop},
+};
+use std::time::{Duration, Instant};
 
-use wry::{
-    application::{
-      event::{Event, StartCause, WindowEvent},
-      event_loop::{ControlFlow, EventLoop},
-    },
-    webview::WebViewBuilder,
-  };
-
-pub fn WindoWnew(title: String, width: u32, height: u32) {
-    let event_loop = wry::application::event_loop::EventLoop::new();
+pub fn WindoWnew(title: String, width: u32, height: u32, resizable: bool,timeout: u64) {
+    let event_loop = EventLoop::new();
     let mut window_builder = WindowBuilder::new();
     window_builder = window_builder.with_title(title.clone());
-    window_builder = window_builder.with_inner_size(LogicalSize::new(width, height)); 
-    window_builder = window_builder.with_resizable(false);
+    window_builder = window_builder.with_inner_size(LogicalSize::new(width, height));
+    window_builder = window_builder.with_resizable(resizable);
 
     let window = window_builder.build(&event_loop).expect("Failed to create window");
 
@@ -28,26 +25,33 @@ pub fn WindoWnew(title: String, width: u32, height: u32) {
     println!("Initial Size: {:?}", current_size);
     println!("Resizable: {}", resizable);
 
-  
+    // ************************************************* as of now we are using this timeout to close for test******************************************************
+    let timeout_duration = Duration::from_secs(timeout);
+    let start_time = Instant::now();
+
     event_loop.run(move |event, _, control_flow| {
         *control_flow = ControlFlow::Wait;
-    
+
         match event {
-          Event::NewEvents(StartCause::Init) => println!("Wry has started!"),
-          Event::WindowEvent {
-            event: WindowEvent::CloseRequested,
-            ..
-          } => *control_flow = ControlFlow::Exit,
-          _ => (),
+            Event::NewEvents(StartCause::Init) => println!("Wry has started!"),
+            Event::WindowEvent {
+                event: WindowEvent::CloseRequested,
+                ..
+            } => *control_flow = ControlFlow::Exit,
+            _ => (),
         }
-      });
+
+        let elapsed = Instant::now() - start_time;
+        if elapsed >= timeout_duration {
+            println!("Window creation timed out after {:?}.", timeout_duration);
+            *control_flow = ControlFlow::Exit;
+        }
+    });
 }
 
-
 pub fn init() -> Result<(), Error> {
+    println!("inside init");
+    define_global_function("new_window", function!(WindoWnew, 5));
 
-     define_global_function("new_window", function!(WindoWnew, 3));
-    // define_global_function("hello_wry", function!(new, 3));
-    // application::init();
     Ok(())
 }
