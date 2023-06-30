@@ -10,7 +10,7 @@ mod event_loop;
 
 pub fn init() -> Result<(), Error> {
     tray_id::init()?;
-    // window::init()?;
+    window::init()?;
     clipboard::init()?;
     event_loop::init()?;
     Ok(())

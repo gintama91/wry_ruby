@@ -2,8 +2,7 @@ AllCops:
   TargetRubyVersion: 2.6
 
 Style/StringLiterals:
-  Enabled: true
-  EnforcedStyle: double_quotes
+  Enabled: false  # Disable frozen literal string enforcement FOR NOW AS SOME NEED TO BE FREEZED and some don't
 
 Style/StringLiteralsInInterpolation:
   Enabled: true
