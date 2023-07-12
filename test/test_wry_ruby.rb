@@ -1,11 +1,19 @@
-require 'test_helper'
+require "test_helper"
+require "timeout"
 
 class TestWryRuby < Minitest::Test
-  # def test_that_it_has_a_version_number
-  #   refute_nil ::WryRuby::VERSION
-  # end
-
   def test_hello_wry
-    new_window "Hello Wry",100,400,true # title, width, height, resizable
+    timeout_seconds = 1
+    assert_timeout(timeout_seconds) do
+      new_window "Hello Wry", 100, 400, true, 1 # title, width, height, resizable
+    end
+  end
+
+  private
+
+  def assert_timeout(timeout_seconds, &block)
+    Timeout.timeout(timeout_seconds, &block)
+  rescue Timeout::Error
+    raise "Window creation timed out after #{timeout_seconds}s."
   end
 end
