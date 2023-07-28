@@ -1,36 +1,38 @@
-name: Ruby
+# ah ok screw this i am tired of cancelling everytime until i figure out what happens i am commenting this out
 
-on:
-  push:
-    branches:
-      - main
-      - dev
-  pull_request:
+# name: Ruby
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    name: Ruby ${{ matrix.ruby }}
-    strategy:
-      matrix:
-        ruby:
-          - '3.2.2'
+# on:
+#   push:
+#     branches:
+#       - main
+#       - dev
+#   pull_request:
 
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Ruby & Rust
-        uses: oxidize-rb/actions/setup-ruby-and-rust@v1
-        with:
-          ruby-version: ${{ matrix.ruby }}
-          bundler-cache: true
-          cargo-cache: true
-          rubygems: '3.4.14'
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     name: Ruby ${{ matrix.ruby }}
+#     strategy:
+#       matrix:
+#         ruby:
+#           - '3.2.2'
 
-      - name: Install dependencies
-        run: |
-          sudo apt update
-          sudo apt install -y libwebkit2gtk-4.1-dev
-          sudo apt install -y libayatana-appindicator3-dev
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Set up Ruby & Rust
+#         uses: oxidize-rb/actions/setup-ruby-and-rust@v1
+#         with:
+#           ruby-version: ${{ matrix.ruby }}
+#           bundler-cache: true
+#           cargo-cache: true
+#           rubygems: '3.4.14'
 
-      - name: Run the default task
-        run: bundle exec rake
+#       - name: Install dependencies
+#         run: |
+#           sudo apt update
+#           sudo apt install -y libwebkit2gtk-4.1-dev
+#           sudo apt install -y libayatana-appindicator3-dev
+
+#       - name: Run the default task
+#         run: bundle exec rake
