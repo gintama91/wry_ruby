@@ -5,7 +5,7 @@ require_relative "lib/wry_ruby/version"
 Gem::Specification.new do |spec|
   spec.name = "wry_ruby"
   spec.version = WryRuby::VERSION
-  spec.authors = ["gintama91"]
+  spec.authors = ["Pavan Nambi"]
   spec.email = ["pavannambi0408@gmail.com"]
 
   spec.summary = "Ruby bindings for Wry."
@@ -14,8 +14,6 @@ Gem::Specification.new do |spec|
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
   spec.required_rubygems_version = ">= 3.3.11"
-
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/gintama91/wry_ruby"

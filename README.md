@@ -1,49 +1,56 @@
 # WryRuby
 
-WryRuby is a project that provides experimental Ruby bindings for the [Tauri Wry library]https://github.com/tauri-apps/wry). It aims to facilitate using Wry functionality in Ruby applications.
+[![License](https://img.shields.io/github/license/gintama91/wry_ruby)](https://opensource.org/licenses/MIT)
+[![Issues](https://img.shields.io/github/issues/gintama91/wry_ruby)](https://github.com/gintama91/wry_ruby/issues)
+[![Stars](https://img.shields.io/github/stars/gintama91/wry_ruby)](https://github.com/gintama91/wry_ruby/stargazers)
 
-**Note: This PROJECT and README is a work in progress and will be updated later.**
+## Overview
 
-**Please note that the tests in this project are expected to fail in a continuous integration (CI) environment due to the inability to render graphics or open a display in a headless environment.**(currently looking for ways to work this)
+WryRuby is an **EXPERIMENTAL** Ruby project that provides ruby bindings for [Tauri's Wry library](https://github.com/tauri-apps/wry).
 
-## Usage
+**Please Note: This project is not ready to use yet**
 
-(TODO: Add usage instructions)
+## 🚀 Features
 
-Currently, WryRuby supports the following features:
+- **`Trayid`**: Simplified creation of system tray icons.
+- **`New Window`**: Easy window creation for your Ruby application.
+- **`Clipboard`**: Access to the system clipboard with convenience.
+- **`Event Loop`**: Create and manage application event loops. *(Currently, only `new` is supported)*.
+- **`window_with_html`**: Create new windows with HTML content.
 
-- **Trayid**: Provides functionality for creating system tray icons.
-- **New Window**: Allows creating new windows for your application.
-- **Clipboard**: Provides access to the system clipboard.
-- **Event Loop**: Allows creating and managing event loops for your application. as of now only new
+## 📝 Usage
 
-To see examples of how to use these features in Ruby, please refer to the tests directory in this project.
+For examples and usage instructions, please refer to the `tests` directory or `examples` directory.
 
-## Installation
+## 💻 Installation
 
-To use WryRuby in your Ruby project, you can add it as a dependency in your Gemfile:
-
-```ruby
-gem 'wry_ruby'
-```
-
-Then, run the following command to install the gem:
-
-```bash
-bundle install
-```
-
-Alternatively, you can install it directly using gem:
+To get started with WryRuby, you can install it using:
 
 ```bash
 gem install wry_ruby
 ```
 
-## Contributing
+### 🛠️ Development Setup
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/gintama91/wry_ruby
+To contribute to the development of WryRuby, ensure you have Ruby and Rust installed on your system. Refer to the `.rust-version` and `.ruby-version` files for specific version requirements.
 
-## License
+Install the dependencies based on your platform from [here](https://github.com/tauri-apps/wry#platform-specific-notes)
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+```bash
+git clone https://github.com/gintama91/wry_ruby.git
+bundle install
+```
 
+To run examples:
+
+```bash
+ruby examples/new_window.rb # Replace with the specific example name
+```
+
+## Contributing ❤️
+
+We welcome bug reports and pull requests on our [GitHub repository](https://github.com/gintama91/wry_ruby). Join us in improving and expanding the capabilities of WryRuby.
+
+## License 📜
+
+WryRuby is an open-source project licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use it and contribute to the community.
