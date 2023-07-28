@@ -12,7 +12,7 @@ class TestWryRuby < Minitest::Test
   end
 
   def use_html
-    html_content = File.read("test/a.html")  # Read the HTML content from your file hm maybee we can do this in rust side..???
+    html_content = File.read("test/shoes.html")  # Read the HTML content from your file hm maybee we can do this in rust side..???
     window_with_html(html_content)
   end
 
