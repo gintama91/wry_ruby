@@ -1,4 +1,5 @@
 use magnus::{Error, define_global_function, function};
+
 use wry::application::dpi::LogicalSize;
 use wry::application::window::WindowBuilder;
 use wry::application::{
@@ -35,6 +36,7 @@ pub fn WindoWnew(title: String, width: u32, height: u32, resizable: bool,timeout
 
         match event {
             Event::NewEvents(StartCause::Init) => println!("ok started"),
+
             Event::WindowEvent {
                 event: WindowEvent::CloseRequested,
                 ..
@@ -49,8 +51,6 @@ pub fn WindoWnew(title: String, width: u32, height: u32, resizable: bool,timeout
         }
     });
 }
-
-
 
 pub fn load_url(url:String){
      let event_loop = EventLoop::new();
@@ -95,7 +95,8 @@ pub fn window_with_html(html:String){
     *control_flow = ControlFlow::Wait;
 
     match event {
-      Event::NewEvents(StartCause::Init) => println!("ok"),
+      Event::NewEvents(StartCause::Init) => println!("Wry has started!"),
+
       Event::WindowEvent {
         event: WindowEvent::CloseRequested,
         ..
@@ -109,6 +110,7 @@ pub fn init() -> Result<(), Error> {
     println!("inside init");
     define_global_function("new_window", function!(WindoWnew, 5));
     define_global_function("load_with_url", function!(load_url, 1));
+
     // as we use html in webiew i am trying to use it here not rly sure if it works though
     define_global_function("window_with_html",function!(window_with_html,1));
 

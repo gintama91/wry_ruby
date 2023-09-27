@@ -8,4 +8,5 @@ mod webview;
 fn init() -> Result<(), Error> {
     application::init()
     // webview::init()
+
 }

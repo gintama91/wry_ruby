@@ -3,9 +3,11 @@ use magnus::{
 };
 
 use std::marker::PhantomData;
+
 use std::sync::atomic::AtomicPtr;
 
 use wry::application::event_loop::EventLoop as EventLoopImpl;
+
 
 #[magnus::wrap(class = "EventLoop")]
 pub struct EventLoop {
@@ -16,6 +18,7 @@ pub struct SafeWrapper<T> {
     event_loop: AtomicPtr<T>,
     _marker: PhantomData<*mut T>,
 }
+
 
 unsafe impl<T> Send for SafeWrapper<T> {}
 

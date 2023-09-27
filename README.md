@@ -19,6 +19,7 @@ WryRuby is an **EXPERIMENTAL** Ruby project that provides ruby bindings for [Tau
 - **`window_with_html`**: Create new windows with HTML content.
 - **`load_with_url`**:loads a URL into the window.
 
+
 ## 📝 Usage
 
 For examples and usage instructions, please refer to the `tests` directory or `examples` directory.
