@@ -1,4 +1,5 @@
-use magnus::{Error, define_global_function, function, method};
+use magnus::{Error, define_global_function, function};
+
 use wry::application::dpi::LogicalSize;
 use wry::application::window::WindowBuilder;
 use wry::application::{
@@ -34,7 +35,8 @@ pub fn WindoWnew(title: String, width: u32, height: u32, resizable: bool,timeout
         *control_flow = ControlFlow::Wait;
 
         match event {
-            Event::NewEvents(StartCause::Init) => println!("Wry has started!"),
+            Event::NewEvents(StartCause::Init) => println!("ok started"),
+
             Event::WindowEvent {
                 event: WindowEvent::CloseRequested,
                 ..
@@ -48,6 +50,33 @@ pub fn WindoWnew(title: String, width: u32, height: u32, resizable: bool,timeout
             *control_flow = ControlFlow::Exit;
         }
     });
+}
+
+pub fn load_url(url:String){
+     let event_loop = EventLoop::new();
+  let window = WindowBuilder::new()
+    .with_title("loading with url")
+    .build(&event_loop)
+    .unwrap();
+  let _webview = WebViewBuilder::new(window).unwrap()
+    .with_url(url.as_str())
+    .unwrap()
+    .build()
+    .unwrap();
+
+  event_loop.run(move |event, _, control_flow| {
+    *control_flow = ControlFlow::Wait;
+
+    match event {
+      Event::NewEvents(StartCause::Init) => println!("ok"),
+      Event::WindowEvent {
+        event: WindowEvent::CloseRequested,
+        ..
+      } => *control_flow = ControlFlow::Exit,
+      _ => (),
+    }
+  });
+
 }
 
 pub fn window_with_html(html:String){
@@ -67,6 +96,7 @@ pub fn window_with_html(html:String){
 
     match event {
       Event::NewEvents(StartCause::Init) => println!("Wry has started!"),
+
       Event::WindowEvent {
         event: WindowEvent::CloseRequested,
         ..
@@ -79,6 +109,8 @@ pub fn window_with_html(html:String){
 pub fn init() -> Result<(), Error> {
     println!("inside init");
     define_global_function("new_window", function!(WindoWnew, 5));
+    define_global_function("load_with_url", function!(load_url, 1));
+
     // as we use html in webiew i am trying to use it here not rly sure if it works though
     define_global_function("window_with_html",function!(window_with_html,1));
 

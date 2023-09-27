@@ -17,6 +17,8 @@ WryRuby is an **EXPERIMENTAL** Ruby project that provides ruby bindings for [Tau
 - **`Clipboard`**: Access to the system clipboard with convenience.
 - **`Event Loop`**: Create and manage application event loops. *(Currently, only `new` is supported)*.
 - **`window_with_html`**: Create new windows with HTML content.
+- **`load_with_url`**:loads a URL into the window.
+
 
 ## 📝 Usage
 
