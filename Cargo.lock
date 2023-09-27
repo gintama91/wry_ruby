@@ -2398,6 +2398,7 @@ dependencies = [
  "gdk",
  "gtk",
  "magnus",
+ "webkit2gtk",
  "wry",
 ]
 

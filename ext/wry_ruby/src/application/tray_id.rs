@@ -8,6 +8,7 @@ pub struct TrayId {
 }
 
 impl TrayId {
+    #[allow(dead_code)]
     pub const EMPTY: TrayId = TrayId {
         inner: TrayIdImpl::EMPTY,
     };

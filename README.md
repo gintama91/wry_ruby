@@ -1,27 +1,57 @@
 # WryRuby
 
-# NOTE: update README later
+[![License](https://img.shields.io/github/license/gintama91/wry_ruby)](https://opensource.org/licenses/MIT)
+[![Issues](https://img.shields.io/github/issues/gintama91/wry_ruby)](https://github.com/gintama91/wry_ruby/issues)
+[![Stars](https://img.shields.io/github/stars/gintama91/wry_ruby)](https://github.com/gintama91/wry_ruby/stargazers)
 
+## Overview
 
-## Installation
+WryRuby is an **EXPERIMENTAL** Ruby project that provides ruby bindings for [Tauri's Wry library](https://github.com/tauri-apps/wry).
 
+**Please Note: This project is not ready to use yet**
 
-## Usage
+## 🚀 Features
 
+- **`Trayid`**: Simplified creation of system tray icons.
+- **`New Window`**: Easy window creation for your Ruby application.
+- **`Clipboard`**: Access to the system clipboard with convenience.
+- **`Event Loop`**: Create and manage application event loops. *(Currently, only `new` is supported)*.
+- **`window_with_html`**: Create new windows with HTML content.
+- **`load_with_url`**:loads a URL into the window.
 
+## 📝 Usage
 
-## Development
+For examples and usage instructions, please refer to the `tests` directory or `examples` directory.
 
+## 💻 Installation
 
+To get started with WryRuby, you can install it using:
 
-## Contributing
+```bash
+gem install wry_ruby
+```
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/wry_ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/wry_ruby/blob/main/CODE_OF_CONDUCT.md).
+### 🛠️ Development Setup
 
-## License
+To contribute to the development of WryRuby, ensure you have Ruby and Rust installed on your system. Refer to the `.rust-version` and `.ruby-version` files for specific version requirements.
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+Install the dependencies based on your platform from [here](https://github.com/tauri-apps/wry#platform-specific-notes)
 
-## Code of Conduct
+```bash
+git clone https://github.com/gintama91/wry_ruby.git
+bundle install
+```
 
-Everyone interacting in the WryRuby project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/wry_ruby/blob/main/CODE_OF_CONDUCT.md).
+To run examples:
+
+```bash
+ruby examples/new_window.rb # Replace with the specific example name
+```
+
+## Contributing ❤️
+
+We welcome bug reports and pull requests on our [GitHub repository](https://github.com/gintama91/wry_ruby). Join us in improving and expanding the capabilities of WryRuby.
+
+## License 📜
+
+WryRuby is an open-source project licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use it and contribute to the community.
